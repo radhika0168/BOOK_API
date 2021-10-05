@@ -1,9 +1,25 @@
+require("dotenv").config();
 const express  = require("express");
 const database = require("./database");
-
+const mongoose = require("mongoose");
 // initialization
 const BOOKY = express();
 BOOKY.use(express.json());
+
+mongoose.connect(process.env.MONGO_DATABASE_URL,{
+
+    useNewUrlParser: true,
+    // useFindAndModify: false,
+    useUnifiedTopology: true,
+    // useCreateIndex: true,
+}).then(()=> console.log("Connection successfully established!!!!"));
+
+// mongoose.connect("mongodb://localhost:27017/FIRSTDB", {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true,
+//     useCreateIndex: true,
+//     useFindAndModify: false,
+//   }).then(()=> console.log("Connection successfully established!!!!"));
 
 /*
 Route              /
