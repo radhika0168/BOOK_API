@@ -1,7 +1,14 @@
 require("dotenv").config();
 const express  = require("express");
-const database = require("./database");
+const database = require("./database/index");
 const mongoose = require("mongoose");
+
+// models
+
+const BookModels = require("./database/book");
+const AuthorModels = require("./database/author");
+const PublicationModel = require("./database/publication");
+
 // initialization
 const BOOKY = express();
 BOOKY.use(express.json());
